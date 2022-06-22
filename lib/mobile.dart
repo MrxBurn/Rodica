@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'data.dart';
+import 'package:animate_do/animate_do.dart';
 
 class Mobile extends StatelessWidget {
   const Mobile({Key? key}) : super(key: key);
@@ -33,9 +34,12 @@ class Mobile extends StatelessWidget {
                       width: 150,
                       fit: BoxFit.fill,
                     ),
-                    Text(
-                      'I.I. Florea Rodica',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    SlideInRight(
+                      duration: Duration(seconds: 2),
+                      child: Text(
+                        'I.I. Florea Rodica',
+                        style: TextStyle(fontSize: 20, color: Colors.white),
+                      ),
                     ),
                   ],
                 ),
@@ -64,12 +68,15 @@ class Mobile extends StatelessWidget {
                 ),
                 Align(
                     alignment: Alignment.topLeft,
-                    child: Text(
-                      'Producem si comercializam diferite folii / benzi avertizoare '
-                      'sau inscripţionate :',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
+                    child: SlideInLeft(
+                      duration: Duration(seconds: 2),
+                      child: Text(
+                        'Producem si comercializam diferite folii / benzi avertizoare '
+                        'sau inscripţionate :',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                        ),
                       ),
                     )),
                 SizedBox(
@@ -102,17 +109,23 @@ class Mobile extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
-                                          Text(
-                                            title[index],
-                                            style: TextStyle(
-                                                fontSize: 18,
-                                                decoration:
-                                                    TextDecoration.underline),
+                                          Pulse(
+                                            duration: Duration(seconds: 2),
+                                            child: Text(
+                                              title[index],
+                                              style: TextStyle(
+                                                  fontSize: 18,
+                                                  decoration:
+                                                      TextDecoration.underline),
+                                            ),
                                           ),
-                                          Text(
-                                            description[index],
-                                            overflow: TextOverflow.clip,
-                                            style: TextStyle(fontSize: 12),
+                                          FadeIn(
+                                            duration: Duration(seconds: 2),
+                                            child: Text(
+                                              description[index],
+                                              overflow: TextOverflow.clip,
+                                              style: TextStyle(fontSize: 12),
+                                            ),
                                           ),
                                         ],
                                       )
@@ -201,24 +214,28 @@ class Mobile extends StatelessWidget {
                   height: 10,
                 ),
                 Center(
-                  child: Text(
-                    'Toate produsele prezentate sunt la pret de producator!',
-                    style: TextStyle(fontSize: 13),
+                  child: Pulse(
+                    infinite: true,
+                    duration: Duration(seconds: 3),
+                    child: Text(
+                      'Toate produsele prezentate sunt la pret de producator!',
+                      style: TextStyle(fontSize: 13),
+                    ),
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 60,
                 ),
                 Text(
                   'Va multumim!',
                   style: TextStyle(fontSize: 30),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 100,
                 ),
                 Center(
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 0.0),
+                    padding: const EdgeInsets.only(bottom: 10.0),
                     child: Image(
                       image: AssetImage('decoratie.png'),
                       alignment: Alignment.center,
@@ -230,25 +247,31 @@ class Mobile extends StatelessWidget {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Contact',
                       style: TextStyle(fontSize: 20),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Telefon: 0744112871 / 0741697268',
-                          style: TextStyle(fontSize: 15),
-                        ),
-                        Text(
-                          'Email: rodicaflorea14@yahoo.ro',
-                          style: TextStyle(fontSize: 15),
-                        ),
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Telefon: 0744112871 / 0741697268',
+                            style: TextStyle(fontSize: 15),
+                          ),
+                          Text(
+                            'Email: rodicaflorea14@yahoo.ro',
+                            style: TextStyle(fontSize: 15),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),

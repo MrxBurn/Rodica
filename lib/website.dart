@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'data.dart';
+import 'package:animate_do/animate_do.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,34 +19,38 @@ class HomePage extends StatelessWidget {
         body: Padding(
       padding: const EdgeInsets.only(left: 5.0),
       child: ListView(
+        physics: NeverScrollableScrollPhysics(),
         children: [
           Stack(
             children: [
               Padding(
                 padding: const EdgeInsets.only(right: 10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Image(
-                      image: AssetImage('logo.png'),
-                      alignment: Alignment.center,
-                      height: 70,
-                      width: 200,
-                      fit: BoxFit.fill,
-                    ),
-                    Text(
-                      'Intreprindere Individuala Florea Rodica',
-                      style: TextStyle(fontSize: 30, color: Colors.white),
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Telefon: 0744112871 / 0741697268'),
-                        Text('Email: rodicaflorea14@yahoo.ro'),
-                      ],
-                    ),
-                  ],
+                child: Container(
+                  decoration: BoxDecoration(color: Color(0xff13242b)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Image(
+                        image: AssetImage('logo.png'),
+                        alignment: Alignment.center,
+                        height: 70,
+                        width: 200,
+                        fit: BoxFit.fill,
+                      ),
+                      Text(
+                        'Intreprindere Individuala Florea Rodica',
+                        style: TextStyle(fontSize: 30, color: Colors.white),
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Telefon: 0744112871 / 0741697268'),
+                          Text('Email: rodicaflorea14@yahoo.ro'),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Center(
@@ -72,12 +77,15 @@ class HomePage extends StatelessWidget {
                 ),
                 Align(
                     alignment: Alignment.topLeft,
-                    child: Text(
-                      'Producem si comercializam diferite folii / benzi avertizoare '
-                      'sau inscripţionate :',
-                      style: TextStyle(
-                        fontSize: 21,
-                        color: Colors.white,
+                    child: SlideInLeft(
+                      duration: Duration(seconds: 2),
+                      child: Text(
+                        'Producem si comercializam diferite folii / benzi avertizoare '
+                        'sau inscripţionate :',
+                        style: TextStyle(
+                          fontSize: 21,
+                          color: Colors.white,
+                        ),
                       ),
                     )),
                 Row(
@@ -127,80 +135,95 @@ class HomePage extends StatelessWidget {
                                 ));
                           }),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 150.0),
-                      child: Row(
-                        children: [
-                          IconButton(
-                              iconSize: 30,
-                              onPressed: () {
-                                controller.previousPage(
-                                    duration: Duration(
-                                      milliseconds: 500,
-                                    ),
-                                    curve: Curves.easeInOut);
-                              },
-                              icon: Icon(Icons.arrow_back)),
-                          SizedBox(
-                              width: 400,
-                              height: 300,
-                              child: PageView.builder(
-                                  controller: controller,
-                                  scrollDirection: Axis.horizontal,
-                                  itemCount: pTitle.length,
-                                  itemBuilder: (context, position) {
-                                    return Container(
-                                      decoration: BoxDecoration(
-                                          color:
-                                              Colors.blueGrey.withOpacity(0.5),
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(15))),
-                                      child: Column(children: [
-                                        ClipRRect(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(15)),
-                                            child: Image.asset(
-                                              pImages[position],
-                                              width: 500,
-                                              height: 200,
-                                              fit: BoxFit.fill,
-                                            )),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(top: 20.0),
-                                          child: Text(
-                                            pTitle[position],
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                              color: Colors.white,
-                                            ),
-                                          ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Bounce(
+                            duration: Duration(seconds: 5),
+                            infinite: true,
+                            child: Text(
+                              'Toate produsele prezentate se pot face la comanda, la pret de producator!',
+                              style: TextStyle(fontSize: 15),
+                            )),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 15, right: 150.0),
+                          child: Row(
+                            children: [
+                              IconButton(
+                                  iconSize: 30,
+                                  onPressed: () {
+                                    controller.previousPage(
+                                        duration: Duration(
+                                          milliseconds: 500,
                                         ),
-                                      ]),
-                                    );
-                                  })),
-                          IconButton(
-                              iconSize: 30,
-                              onPressed: () {
-                                controller.nextPage(
-                                    duration: Duration(
-                                      seconds: 1,
-                                    ),
-                                    curve: Curves.easeInOut);
-                              },
-                              icon: Icon(Icons.arrow_forward)),
-                        ],
-                      ),
+                                        curve: Curves.easeInOut);
+                                  },
+                                  icon: Icon(Icons.arrow_back)),
+                              SizedBox(
+                                height: 300,
+                                width: 400,
+                                child: PageView.builder(
+                                    controller: controller,
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: pTitle.length,
+                                    itemBuilder: (context, position) {
+                                      return Container(
+                                        decoration: BoxDecoration(
+                                            color: Colors.blueGrey,
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(15))),
+                                        child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(15)),
+                                                  child: Image.asset(
+                                                    pImages[position],
+                                                    width: 500,
+                                                    height: 200,
+                                                    fit: BoxFit.fill,
+                                                  )),
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 20.0),
+                                                child: Text(
+                                                  pTitle[position],
+                                                  style: TextStyle(
+                                                    fontSize: 20,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ]),
+                                      );
+                                    }),
+                              ),
+                              IconButton(
+                                  iconSize: 30,
+                                  onPressed: () {
+                                    controller.nextPage(
+                                        duration: Duration(
+                                          seconds: 1,
+                                        ),
+                                        curve: Curves.easeInOut);
+                                  },
+                                  icon: Icon(Icons.arrow_forward)),
+                            ],
+                          ),
+                        ),
+                      ],
                     )
                   ],
                 ),
-                Text(
-                  'Toate produsele prezentate mai sus se pot face pe comanda, la pret de producator!',
-                  style: TextStyle(fontSize: 25),
-                )
+                SizedBox(
+                  height: 30,
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     ));
