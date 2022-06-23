@@ -28,7 +28,7 @@ class Mobile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Image(
-                      image: AssetImage('logo.png'),
+                      image: AssetImage('/images/logo.png'),
                       alignment: Alignment.center,
                       height: 70,
                       width: 150,
@@ -48,7 +48,7 @@ class Mobile extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(top: 70.0),
                   child: Image(
-                    image: AssetImage('decoratie.png'),
+                    image: AssetImage('/images/decoratie.png'),
                     alignment: Alignment.center,
                     height: 7,
                     width: media.width,
@@ -83,7 +83,7 @@ class Mobile extends StatelessWidget {
                   width: media.width,
                   child: ListView.builder(
                       shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
+                      physics: NeverScrollableScrollPhysics(),
                       itemCount: title.length,
                       itemBuilder: (context, index) {
                         return SizedBox(
@@ -135,6 +135,9 @@ class Mobile extends StatelessWidget {
                               )),
                         );
                       }),
+                ),
+                SizedBox(
+                  height: 30,
                 ),
                 Stack(
                   children: [
@@ -237,7 +240,7 @@ class Mobile extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10.0),
                     child: Image(
-                      image: AssetImage('decoratie.png'),
+                      image: AssetImage('/images/decoratie.png'),
                       alignment: Alignment.center,
                       height: 7,
                       width: media.width,

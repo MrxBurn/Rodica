@@ -1,43 +1,31 @@
 List<String> title = [
   'Banda Apa',
-  'Banda Galbena',
-  'Banda Rosie',
+  'Banda Electricitate',
+  'Banda Rosu/Alb',
   'Banda Canalizare',
+  'Banda Gaze Naturale',
   'Pungi Transparente',
-  'Saci Menajeri'
+  'Saci Menajeri',
 ];
 
 List<String> description = [
-  'Banda apa cu latime de 10cm. \nSe pot produce si alte tipuri de benzi: \n * Banda Gaze Naturale (latime 15cm) \n \nAcestea sunt benzi standard pentru cei \ncare se ocupa de bransarea \nApei, Canalizarii, Gazelor si Electricitate. ',
+  'Banda apa cu latime de 10cm.',
   'Banda circuite electrice cu latimea de 15cm.',
   'Banda Alb/Rosu de avertizare \nsi delimitare cu latime de 7,5cm.',
   'Banda canalizare cu latimea de 30cm.',
+  'Banda Gaze Naturale cu latimea de 15cm.',
   'Saci transparenti \nde dimensiuni 600x100 si 500x950.',
-  'Saci menajeri de 240L, 120L, 60L, 35L.'
+  'Saci menajeri de 240L, 120L, 60L, 35L.',
 ];
 
 List<String> images = [
-  'banda_apa.png',
-  'banda_galbena.png',
-  'banda_rosie.png',
-  'canalizare.png',
-  'pungi.png',
-  'saci.png'
-];
-
-//PageView
-List<String> pImages = [
-  'maiou.jpeg',
-  'politia.png',
-  'saci_brichete.webp',
-  'husa_haina.png'
-];
-
-List<String> pTitle = [
-  'Pungi tip maiou',
-  'Benzi avertizoare',
-  'Saci brichete',
-  'Huse haine',
+  '/images/banda_apa.png',
+  '/images/banda_galbena.png',
+  '/images/banda_rosie.png',
+  '/images/canalizare.png',
+  '/images/banda_gaze.png',
+  '/images/pungi.png',
+  '/images/saci.png',
 ];
 
 //Card Colours
@@ -48,4 +36,20 @@ List<int> colours = [
   0xffff9d52,
   0xfff96647,
   0xff00acf4,
+  0xffb00014,
+];
+
+//PageView
+List<String> pImages = [
+  '/images/maiou.jpeg',
+  '/images/politia.png',
+  '/images/saci_brichete.webp',
+  '/images/husa_haina.png'
+];
+
+List<String> pTitle = [
+  'Pungi tip maiou',
+  'Benzi avertizoare',
+  'Saci brichete',
+  'Huse haine',
 ];

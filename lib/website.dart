@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
         body: Padding(
       padding: const EdgeInsets.only(left: 5.0),
       child: ListView(
-        physics: NeverScrollableScrollPhysics(),
+        physics: BouncingScrollPhysics(),
         children: [
           Stack(
             children: [
@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Image(
-                        image: AssetImage('logo.png'),
+                        image: AssetImage('/images/logo.png'),
                         alignment: Alignment.center,
                         height: 70,
                         width: 200,
@@ -57,7 +57,7 @@ class HomePage extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(top: 70.0),
                   child: Image(
-                    image: AssetImage('decoratie.png'),
+                    image: AssetImage('/images/decoratie.png'),
                     alignment: Alignment.center,
                     height: 7,
                     width: media.width,
